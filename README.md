@@ -1,14 +1,24 @@
-# Cyan Light Theme for Zed
+# Cyan Light and Dark for Zed
 
-A port of the [Cyan Light Theme](https://plugins.jetbrains.com/plugin/12102-cyan-light-theme) from the JetBrains Marketplace to [Zed](https://zed.dev).
+Cyan Light 2 is a port of the [JetBrains Cyan Light Theme](https://plugins.jetbrains.com/plugin/12102-cyan-light-theme) to [Zed](https://zed.dev). Cyan Dark 2 is its dark companion, with cool charcoal surfaces and the same syntax color roles.
 
 ## Install
 
 Search for "Cyan Light Theme 2" in Zed's extension marketplace (`zed: extensions`).
 
+Set `theme` in `settings.json` to follow your system appearance.
+
+```json
+"theme": {
+  "mode": "system",
+  "light": "Cyan Light 2",
+  "dark": "Cyan Dark 2"
+}
+```
+
 ## Matching RustRover
 
-Colors come from the JetBrains theme, its parent `Default` scheme and RustRover's Rust defaults.
+The light palette comes from the JetBrains theme, its parent `Default` scheme and RustRover's Rust defaults.
 Some Rust highlighting depends on rust-analyzer token modifiers, which a theme can't select.
 To match RustRover, add these to `settings.json` (with `"semantic_tokens": "combined"` or `"full"`):
 
@@ -26,22 +36,24 @@ To match RustRover, add these to `settings.json` (with `"semantic_tokens": "comb
     { "token_type": "attributeBracket", "style": ["attribute"] },
     { "token_type": "operator", "token_modifiers": ["controlFlow"], "style": ["operator.try"] },
     // Underlined mutable bindings
-    { "token_type": "variable", "token_modifiers": ["mutable"], "underline": "#2b2d30" },
-    { "token_type": "parameter", "token_modifiers": ["mutable"], "underline": "#909090" },
-    { "token_type": "selfKeyword", "token_modifiers": ["mutable"], "underline": "#909090" },
+    { "token_type": "variable", "token_modifiers": ["mutable"], "underline": true },
+    { "token_type": "parameter", "token_modifiers": ["mutable"], "underline": true },
+    { "token_type": "selfKeyword", "token_modifiers": ["mutable"], "underline": true },
     // Unsafe operations background
-    { "token_type": "function", "token_modifiers": ["unsafe"], "background_color": "#f8d4c9" },
-    { "token_type": "method", "token_modifiers": ["unsafe"], "background_color": "#f8d4c9" },
-    { "token_type": "operator", "token_modifiers": ["unsafe"], "background_color": "#f8d4c9" }
+    { "token_type": "function", "token_modifiers": ["unsafe"], "style": ["rust.unsafe"] },
+    { "token_type": "method", "token_modifiers": ["unsafe"], "style": ["rust.unsafe"] },
+    { "token_type": "operator", "token_modifiers": ["unsafe"], "style": ["rust.unsafe"] }
   ]
 }
 ```
 
-The underline and background colors are fixed values, so they stay when you switch themes.
+If you copied an earlier version of these rules, replace it with the snippet above. Mutable underlines follow the token color, and unsafe operations use the active theme's background for unsafe code.
 
 ## Preview
 
-![Cyan Light Theme](./assets/preview.png)
+![Cyan Light 2 in Zed](./assets/preview.png)
+
+![Cyan Dark 2 in Zed](./assets/preview-dark.png)
 
 ## Credits
 
