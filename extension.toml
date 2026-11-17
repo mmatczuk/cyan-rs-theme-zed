@@ -1,7 +1,7 @@
-id = "cyan-light-theme-v2"
-name = "Cyan Light Theme 2"
+id = "cyan-rs-theme"
+name = "Cyan RS"
 version = "0.1.0"
 schema_version = 1
 authors = ["Michał Matczuk"]
-description = "A port of the JetBrains Cyan Light Theme and its dark companion"
-repository = "https://github.com/mmatczuk/cyan-light-theme-zed"
+description = "Light and dark themes for Rust in Zed, inspired by JetBrains Cyan Light and RustRover"
+repository = "https://github.com/mmatczuk/cyan-rs-theme-zed"
